@@ -49,3 +49,14 @@ prompt
 server.log
 # Skills directory
 /skills/
+
+# Database files
+*.db
+*.db-journal
+/db/
+
+# Upload folder
+/upload/
+
+# Work logs
+worklog.md

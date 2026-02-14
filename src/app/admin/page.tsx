@@ -264,6 +264,23 @@ export default function AdminPage() {
     }
   }, [isAuthenticated, negocio, currentPage, searchTerm]);
 
+  // Auto-actualización cada 10 segundos
+  useEffect(() => {
+    if (!isAuthenticated || !negocio) return;
+
+    const interval = setInterval(() => {
+      fetchStats();
+      fetchClientes();
+      fetchCompras();
+      // También actualizar seguridad si estamos en esa pestaña
+      if (activeTab === 'seguridad') {
+        fetchSeguridad();
+      }
+    }, 10000); // 10 segundos
+
+    return () => clearInterval(interval);
+  }, [isAuthenticated, negocio, currentPage, searchTerm, activeTab]);
+
   const fetchStats = async () => {
     try {
       const response = await fetch('/api/admin');
