@@ -45,6 +45,14 @@ export async function POST(request: NextRequest) {
         nombre: negocio.nombre,
         slug: negocio.slug,
         emailDestino: negocio.emailDestino,
+        telefono: negocio.telefono,
+        direccion: negocio.direccion,
+        descripcion: negocio.descripcion,
+        logoUrl: negocio.logoUrl,
+        telegramToken: negocio.telegramToken,
+        telegramChatId: negocio.telegramChatId,
+        telegramActivo: negocio.telegramActivo,
+        qrUrl: negocio.qrUrl,
       },
     });
 
